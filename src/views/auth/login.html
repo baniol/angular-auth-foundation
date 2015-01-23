@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row row-centered">
+    <div class="large-4 large-centered columns">
+      <form method="post" ng-submit="login()" name="loginForm" autocomplete="off" novalidate>
+        <fieldset>
+          <legend>Sign in</legend>
+          <label>User name
+            <input type="text" name="username" ng-model="username" placeholder="Name">
+          </label>
+          <label>Password
+            <input type="password" value="" name="password" ng-model="password" placeholder="Password">
+          </label>
+          <button type="submit" ng-disabled="loginForm.$invalid || inProgress" class="button small login-btn">
+            <span data-animation="true" ng-show="inProgress" class="fa fa-refresh fa-spin"></span>
+            <span>Login</span>
+          </button>
+          <div class="">
+            <a ui-sref="forgotPassword">Forgot your password?</a>
+          </div>
+          <div class="">
+            Don't have an account yet? <a ui-sref="signup">Sign up</a>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

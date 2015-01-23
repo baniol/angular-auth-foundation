@@ -1,0 +1,31 @@
+<div ng-controller="NavbarCtrl">
+  <top-bar>
+    <ul class="title-area">
+      <!--<li class="name"><h1><a href="#">My Site</a></h1></li>-->
+      <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
+      <!--<li><a ng-click="toggleOffCanvas($event)"><span class="fa fa-bars"></span></a></li>-->
+    </ul>
+
+    <top-bar-section>
+      <ul class="left">
+        <li ng-if="currentUser" ui-sref-active="active"><a ui-sref="notes">Notes</a></li>
+        <li ng-if="currentUser" ui-sref-active="active"><a ui-sref="tags">Edit Tags</a></li>
+        <li ng-if="currentUser" ng-click="openTagCloud($event)"><a href="">Tag Cloud</a></li>
+        <li><a ng-if="currentUser" href="" ng-click="newNote($event)">New note</a></li>
+      </ul>
+      <ul class="right">
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <input type="text" ng-model="selected" ng-keyup="search($event)" placeholder="Search notes" typeahead-on-select="tagSelected($model)" typeahead="tag for tag in tags | filter:searchTagFilter($viewValue)| limitTo:8">
+            </div>
+          </div>
+        </li>
+        <li ng-if="!currentUser"><a ui-sref="login">Login</i></a></li>
+        <li ng-if="!currentUser"><a ui-sref="signup">Sign up</i></a></li>
+        <li ng-if="currentUser" ui-sref-active="active"><a ng-bind="currentUser.name" ui-sref="editProfile"></a></li>
+        <li ng-if="currentUser"><a href="" ng-click="logout()">Logout</a></li>
+      </ul>
+    </top-bar-section>
+  </top-bar>
+</div>

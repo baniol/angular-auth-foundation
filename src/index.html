@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="AngularAuth">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes</title>
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css({.tmp,.}) vendor.css -->
+  <link rel="stylesheet" href="vendor.css">
+  <!-- bower:css -->
+  <!--<link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css" />-->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css({.tmp,.}) appstyles.css -->
+  <link rel="stylesheet" href="appstyles.css">
+  <!-- endbuild -->
+
+</head>
+<body>
+ <div class="fixed">
+  <div ng-controller="NavbarCtrl">
+    <top-bar>
+      <ul class="title-area">
+        <li class="name"><h1><a href="#">My Site</a></h1></li>
+        <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
+      </ul>
+      <top-bar-section>
+        <ul class="right">
+          <li ng-if="!currentUser"><a ui-sref="login">Login</i></a></li>
+          <li ng-if="!currentUser"><a ui-sref="signup">Sign up</i></a></li>
+          <li ng-if="currentUser" class="user-name" ui-sref-active="active"><a ng-bind="currentUser.name" ui-sref="editProfile"></a></li>
+          <li ng-if="currentUser"><a href="" class="logout-link" ng-click="logout()">Logout</a></li>
+        </ul>
+      </top-bar-section>
+    </top-bar>
+  </div>
+</div>
+
+<div ui-view class="main-view"></div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/modernizr/modernizr.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({src,.tmp}) scripts/app.js -->
+<script src="app.js"></script>
+<script src="controllers/homeCtrl.js"></script>
+<script src="controllers/navbar.js"></script>
+<script src="controllers/auth/login.js"></script>
+<script src="controllers/auth/signup.js"></script>
+<script src="controllers/auth/editprofile.js"></script>
+<script src="controllers/auth/forgotpassword.js"></script>
+<script src="controllers/auth/resetpassword.js"></script>
+<script src="services/auth.js"></script>
+<script src="services/message.js"></script>
+
+<!-- inject:partials -->
+<!-- angular templates will be automaticaly converted in js and inserted here -->
+<!-- endinject -->
+<!-- endbuild -->
+</body>
+</html>
