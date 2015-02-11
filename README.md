@@ -56,8 +56,11 @@ app.get('/api/test', auth, function(req, res) {
 
 server.listen(5000);
 ```
+Adjust `setting` object if necessary. If you change the url of the server make sure it is reflected in `src/app.js` file: `.constant('apiUrl', 'http://localhost:5000')`.
 
-run `npm install` and `node server.js`.
+Email (transport) settings are optional.
+
+Run `npm install` and `node server.js`.
 
 Go back to the `angular-auth-foundation` folder.
 
@@ -65,11 +68,7 @@ To run the project in development mode use `gulp serve`.
 To build the project for production run `gulp`.
 To check the project running with built assets run `gulp serve:dist`.
 
-Setup front-end accordingly - apiUrl in `app.js`.
-Email (transport) settings are optional.
-
 ## e2e tests with protractor.js
 
 `gulp protractor`
-
 
