@@ -1,6 +1,8 @@
 # angular-auth-foundation
 
-Create a separate directory for storing server.
+run `npm install` and `bower install`
+
+In a separate directory create 2 files:
 
 `package.json` :
 
@@ -55,7 +57,19 @@ app.get('/api/test', auth, function(req, res) {
 server.listen(5000);
 ```
 
+run `npm install` and `node server.js`.
+
+Go back to the `angular-auth-foundation` folder.
+
+To run the project in development mode use `gulp serve`.
+To build the project for production run `gulp`.
+To check the project running with built assets run `gulp serve:dist`.
+
 Setup front-end accordingly - apiUrl in `app.js`.
 Email (transport) settings are optional.
 
 ## e2e tests with protractor.js
+
+`gulp protractor`
+
+
